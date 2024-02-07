@@ -22,3 +22,6 @@ resource "aws_instance" "web" {
     Name = "HelloWorld"
   }
 }
+variable "account" {
+  default = "123123123123"
+}
