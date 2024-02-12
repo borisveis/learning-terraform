@@ -5,3 +5,4 @@ terraform.tfstate
 .idea
 plan
 terraform.tfstate.backup
+plan.out
