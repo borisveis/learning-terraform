@@ -7,3 +7,4 @@ plan
 terraform.tfstate.backup
 plan.out
 .terraform.tfstate.lock.info
+.idea/aws.xml
