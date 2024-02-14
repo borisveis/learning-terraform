@@ -14,11 +14,15 @@ data "aws_ami" "app_ami" {
   owners = ["979382823631"] # Bitnami
 }
 
-resource "aws_instance" "web" {
-  ami           = data.aws_ami.app_ami.id
-  instance_type = "t3.nano"
 
+variable "account" {
+  default = "123123123123"
+}
+resource "aws_vpc" "myvpn"{
+  cidr_block = "192.168.0.0/16"
+  instance_tenancy = "default"
+  enable_dns_hostnames =true
   tags = {
-    Name = "HelloWorld"
+    name="myvpc"
   }
 }

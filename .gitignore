@@ -1,0 +1,10 @@
+
+.terraform.lock.hcl
+.terraform/*
+terraform.tfstate
+.idea
+plan
+terraform.tfstate.backup
+plan.out
+.terraform.tfstate.lock.info
+.idea/aws.xml
