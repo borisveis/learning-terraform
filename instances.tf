@@ -27,6 +27,8 @@ resource "aws_instance" "web" {
 resource "aws_instance" "instance2" {
   ami           = data.aws_ami.app_ami.id
   instance_type = "t3.nano"
+  user_data     = "<<-EOL"
+  #!/bin/bash -xe
 
   tags = {
     Name = "instance2"
