@@ -1,10 +1,4 @@
-resource "aws_vpc" "main" {
-  cidr_block = "10.0.0.0/16"
 
-  tags = {
-    Name = "Project VPC"
-  }
-}
 variable "index" {
   type = number
   default =1
@@ -20,10 +14,10 @@ variable "private_subnet_cidrs" {
   description = "Private Subnet CIDR values"
   default     = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
 }
-resource "aws_instance" "web" {
+resource "aws_instance" "instance1" {
   ami           = data.aws_ami.app_ami.id
   instance_type = "t3.nano"
-
+  subnet_id = aws_subnet.prod-subnet-public-1.id
   tags = {
     Name  = var.index + 1
     Name     = var.index + 1
@@ -32,29 +26,26 @@ resource "aws_instance" "web" {
 resource "aws_instance" "instance2" {
   ami           = data.aws_ami.app_ami.id
   instance_type = "t3.nano"
-  user_data     = "<<-EOL"
-  #!/bin/bash -xe
+#  subnet_id = "${aws_vpc.main.id}"
+  subnet_id = aws_subnet.prod-subnet-public-1.id
 
-  tags = {
-    Name  = var.index + 1
 
   }
-  }
-resource "aws_subnet" "public_subnets" {
-  count      = length(var.public_subnet_cidrs)
-  vpc_id     = aws_vpc.main.id
-  cidr_block = element(var.public_subnet_cidrs, count.index)
+#resource "aws_subnet" "public_subnets" {
+#  count      = length(var.public_subnet_cidrs)
+#  vpc_id     = aws_vpc.main.id
+#  cidr_block = element(var.public_subnet_cidrs, count.index)
+#
+#  tags = {
+#  }
+#}
 
-  tags = {
-  }
-}
-
-resource "aws_subnet" "private_subnets" {
-  count      = length(var.private_subnet_cidrs)
-  vpc_id     = aws_vpc.main.id
-  cidr_block = element(var.private_subnet_cidrs, count.index)
-
-  tags = {
-    Name = "Private Subnet ${count.index + 1}"
-  }
-}
+#resource "aws_subnet" "private_subnets" {
+#  count      = length(var.private_subnet_cidrs)
+#  vpc_id     = aws_vpc.main.id
+#  cidr_block = element(var.private_subnet_cidrs, count.index)
+#
+#  tags = {
+#      Name = "Private Subnet ${count.index + 1}"
+#  }
+#}

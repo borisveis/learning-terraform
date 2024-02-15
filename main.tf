@@ -18,11 +18,11 @@ data "aws_ami" "app_ami" {
 variable "account" {
   default = "123123123123"
 }
-resource "aws_vpc" "myvpn"{
-  cidr_block = "192.168.0.0/16"
-  instance_tenancy = "default"
-  enable_dns_hostnames =true
-  tags = {
-    name="myvpc"
-  }
-}
+#resource "aws_vpc" "myvpn"{
+#  cidr_block = "192.168.0.0/16"
+#  instance_tenancy = "default"
+#  enable_dns_hostnames =true
+#  tags = {
+#    name="myvpc"
+#  }
+#}
