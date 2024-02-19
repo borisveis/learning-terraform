@@ -1,0 +1,8 @@
+resource "aws_instance" "instance1" {
+  ami           = data.aws_ami.app_ami.id
+  instance_type = "t3.nano"
+  subnet_id = aws_subnet.prod-subnet-public-1.id
+  tags = {
+    Name     = var.index + 1
+  }
+}
