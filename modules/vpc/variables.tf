@@ -7,3 +7,7 @@ variable "vpcname" {
   type = string
   default = "vpcvar"
 }
+variable "uploadfilepath" {
+  type = string
+  default = "./*"
+}
