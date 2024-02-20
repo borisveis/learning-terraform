@@ -9,3 +9,7 @@ resource "aws_s3_bucket" "general_s3" {
     Name="s3bucket"
   }
   }
+variable "uploadfilepath" {
+  type = string
+  default = "./"
+}
