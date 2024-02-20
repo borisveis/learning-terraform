@@ -1,3 +1,7 @@
+module "s3" {
+  source = "./modules/s3"
+
+}
 data "aws_ami" "app_ami" {
   most_recent = true
 

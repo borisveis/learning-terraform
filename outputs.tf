@@ -5,3 +5,6 @@ output "wev_ip_associate_public_ip_address" {
 
   value = aws_instance.instance1.associate_public_ip_address
 }
+output "random_string" {
+  value = module.s3.randomstring
+}

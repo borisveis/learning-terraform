@@ -2,6 +2,6 @@
 #default = "us-west-1a"
 #}
 variable "counter" {
-type = number
-default = 1
+  type    = number
+  default = 1
 }

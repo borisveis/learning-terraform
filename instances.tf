@@ -13,13 +13,13 @@ variable "private_subnet_cidrs" {
   description = "Private Subnet CIDR values"
   default     = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
 }
-#Name= "instance$({var.instancecount+1})"
+#Name= "instance1"
 resource "aws_instance" "instance1" {
   ami           = data.aws_ami.app_ami.id
   instance_type = "t3.nano"
   subnet_id = aws_subnet.prod-subnet-public-1.id
   tags = {
-    Name= "instance$({var.instancecount+1})"
+    Name= "instance1"
   }
 }
 resource "aws_instance" "instance2" {
@@ -28,8 +28,7 @@ resource "aws_instance" "instance2" {
   #  subnet_id = "${aws_vpc.main.id}"
   subnet_id     = aws_subnet.prod-subnet-public-1.id
   tags = {
-    Name= "instance$({var.instancecount+1})"
-#    Name= "instance2"
+    Name= "instance2"
   }
   }
 #  vpc_id     = aws_vpc.main.id

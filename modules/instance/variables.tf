@@ -14,4 +14,12 @@ variable "instancecount" {
 }variable "instancenameprefix" {
   type = string
   default = "instancenum"
+  }
+variable "amiid" {
+  type = string
+  default ="aws_ami.app_ami.id"
+}
+variable "instancetype" {
+  type = string
+  default = "t3.nano"
 }

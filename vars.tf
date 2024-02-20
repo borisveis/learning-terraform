@@ -1,4 +1,4 @@
 variable "availabilityzone" {
-  type = string
+  type    = string
   default = "us-west-1a"
 }
